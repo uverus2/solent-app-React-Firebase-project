@@ -1,24 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./styles/index.scss";
+import {Switch,Route,useLocation,Redirect} from "react-router-dom";
+
+// Views
+import Home from "./views/Home";
+import Search from "./views/Search";
+import ErrorPage from "./views/Error";
+
+
+// Firebase setup 
+
+import firebase from "firebase/app";   // the firbase core lib
+import 'firebase/auth'; // specific products
+import firebaseConfig from "./config/firebase";  // the firebase config we set up ealier
+import "firebase/firestore";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Switch>
+          <Route exact path="/">
+            <Home/>  
+          </Route> 
+          <Route exact path="/search"> 
+            <Search/>
+          </Route>
+          <Route path="*" component={ErrorPage}/>
+      </Switch>
     </div>
   );
 }

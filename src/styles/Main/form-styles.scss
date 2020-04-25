@@ -1,0 +1,88 @@
+.error {
+    font-size: 1.5rem;
+    color: $main-color;
+}
+
+.form-elements-wrap {
+    max-width: 600px;
+    padding: 1rem 0;
+    margin: auto;
+}
+
+label {
+    font-weight: $light;
+    font-size: 1.3rem;
+    text-align: left;
+    margin: 0.5rem 0;
+}
+
+input,
+label {
+    width: 100%;
+}
+
+input,
+.rw-multiselect>.rw-widget-picker,
+select,
+textarea {
+    margin: 0.5rem 0;
+    border: solid 2px $gray-color;
+    border-radius: 25px;
+    height: 45px;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    background: #ffffff;
+}
+
+textarea {
+    height: 100%;
+}
+
+.rw-multiselect-tag {
+    background: $main-color;
+    color: $white-color;
+    vertical-align: middle;
+    padding: 0.8rem;
+    border-radius: 25px;
+}
+
+.rw-popup {
+    border: solid 1px $main-color;
+    border-radius: 6px;
+    padding: 5px;
+    font-size: 1.5rem;
+    color: $white-color;
+}
+
+.rw-list-option:hover,
+.rw-list-option:hover.rw-state-focus {
+    background: $main-color;
+    color: $white-color;
+}
+
+.rw-popup ul li {
+    color: $light-gray;
+}
+
+.rw-list-option.rw-state-focus {
+    border-color: none;
+    border: none;
+    color: $light-gray;
+}
+
+.rw-state-focus>.rw-widget-container,
+.rw-state-focus>.rw-widget-container:hover {
+    border: solid 1px $light-gray;
+    box-shadow: none;
+}
+
+input:active,
+input:focus,
+.fw-open:focus,
+.fw-open:active,
+.rw-multiselect>.rw-widget-picker:focus,
+.rw-multiselect>.rw-widget-picker:active,
+.rw-popup-container:active,
+.rw-popup-container:focus {
+    outline: none;
+}

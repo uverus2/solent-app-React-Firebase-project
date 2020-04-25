@@ -1,0 +1,113 @@
+.p-1 {
+    padding: 1rem;
+}
+
+.p-2 {
+    padding: 2rem;
+}
+
+.p-3 {
+    padding: 3rem;
+}
+
+.px-1 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.px-2 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.px-3 {
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-d-column {
+    flex-direction: column;
+}
+
+.d-none {
+    display: none;
+}
+
+.d-block {
+    display: block;
+}
+
+.radius {
+    border-radius: 25px;
+}
+
+.border {
+    border: solid 1px $gray-color;
+}
+
+.content-wrap {
+    margin: 0;
+    padding: 0 3rem;
+}
+
+.logo {
+    margin: auto;
+    padding: 3rem 0;
+}
+
+.comment-boxes {
+    padding: 0.5rem 1rem;
+    max-width: 200px;
+    width: 100%;
+    border-radius: 2.5rem;
+    margin-top: 15px;
+}
+
+.comment-wrap {
+    display: grid;
+    color: #fff;
+    grid-template-areas: "user user-comment" ". my-comment";
+    max-width: 320px;
+    grid-column-gap: 5px;
+    grid-template-columns: 50px auto;
+    &.comment-box {
+        grid-area: user-comment;
+        background: $gray-color;
+    }
+    &.comment-image {
+        grid-area: user;
+        height: 50px;
+        width: 50px;
+        background: #575757;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    &.my-comment {
+        grid-area: my-comment;
+        background: $main-color;
+    }
+}
+
+.hero-styles {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    &.profile-here {
+        background: url("/images/profile-hero.jpg");
+    }
+    &.main-hero {
+        background: url("/images/main-hero.jpg");
+    }
+}

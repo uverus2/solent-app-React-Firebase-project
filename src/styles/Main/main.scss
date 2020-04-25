@@ -1,0 +1,94 @@
+html {
+    font-size: 62.5%;
+    color: red;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    font-family: $main-font;
+    font-weight: $normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    padding: 1rem 0;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: $bold;
+}
+
+h2 {
+    font-size: 3rem;
+    font-weight: $semibold;
+}
+
+h3 {
+    font-size: 2.5rem;
+    font-weight: $semibold;
+}
+
+h4 {
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1.5rem;
+    color: $gray-color;
+}
+
+span {
+    font-size: 1.5rem;
+    color: $light-gray;
+    font-weight: $bold;
+}
+
+a {
+    font-size: 1.5rem;
+    color: $main-color;
+}
+
+a:hover {
+    color: $light-gray;
+}
+
+button {
+    padding: 1rem;
+    width: 100%;
+    font-size: 2rem;
+    border-radius: 25px;
+    max-width: 250px;
+    border: solid 3px $gray-color;
+    &.main {
+        color: $gray-color;
+        background: $white-color;
+    }
+    &.secondary {
+        color: $white-color;
+        border-color: $main-color;
+        background: $main-color;
+    }
+    &:hover {
+        &.main {
+            background: $main-color;
+            border-color: $main-color;
+            background: $main-color;
+        }
+        &.secondary {
+            color: $gray-color;
+            border-color: $gray-color;
+            background: $white-color;
+        }
+    }
+}
+
+button:active,
+button:focus {
+    outline: none;
+}
