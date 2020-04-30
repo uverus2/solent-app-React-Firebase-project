@@ -1,0 +1,42 @@
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat( auto-fill, minmax(320px, 450px));
+    grid-gap: 1.5rem;
+    justify-content: center;
+}
+
+.card-wrap {
+    border: solid 3px $main-color;
+    border-radius: 2.5rem;
+    padding: 1rem;
+    max-width: 450px;
+    width: 100%;
+    box-sizing: border-box;
+    span {
+        color: $main-color;
+    }
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        button {
+            max-width: 125px;
+            font-size: 1.5rem;
+            padding: 0.5rem;
+        }
+    }
+    .card-image {
+        img {
+            width: 100%;
+            max-width: 450px;
+        }
+    }
+    .card-details {
+        text-align: left;
+        span,
+        p {
+            padding: 0.8rem 0;
+            font-size: 2rem;
+        }
+    }
+}

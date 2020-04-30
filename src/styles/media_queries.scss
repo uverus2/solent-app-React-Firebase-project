@@ -1,0 +1,69 @@
+@media only screen and (max-width:640px) {
+    .top-wrap {
+        padding-top: 0;
+    }
+    .details-container {
+        grid-template-columns: 1fr;
+    }
+    .header-wrap .header-inner-wrap {
+        max-width: 80vw;
+    }
+    .profile-hero {
+        background-image: url("/images/profile-hero.jpg");
+    }
+    .main-hero {
+        background-image: url("/images/main-hero.jpg");
+    }
+    .for-mobile {
+        display: block;
+    }
+    .for-desktop {
+        display: none;
+    }
+}
+
+@media only screen and (max-width:500px) {
+    .comment-review {
+        max-width: 100%;
+        a,
+        p {
+            font-size: 2.5rem;
+        }
+        a {
+            text-align: left;
+        }
+        p {
+            text-align: right;
+        }
+    }
+    .roles-wrap {
+        flex-direction: column;
+        h5 {
+            margin-right: 0;
+        }
+    }
+}
+
+@media only screen and (max-width:400px) {
+    .logo {
+        padding: 2rem 1rem 2rem;
+    }
+    .header-wrap {
+        padding: 2rem 1rem;
+    }
+}
+
+@media only screen and (max-width:320px) {
+    .logo {
+        padding: 2rem 1rem 2rem;
+    }
+    .header-wrap .header-inner-wrap {
+        max-width: 100%;
+    }
+    .content-wrap {
+        padding: 0 1rem;
+    }
+    .sections {
+        max-width: 280px;
+    }
+}

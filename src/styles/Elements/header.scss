@@ -1,0 +1,61 @@
+.header-wrap {
+    width: 100%;
+    background: rgba(227, 6, 19, 0.8);
+    border-top-left-radius: 2.5rem;
+    border-top-right-radius: 2.5rem;
+    padding: 2rem;
+    box-shadow: -3px 1px 20px rgba(51, 51, 51, 0.8);
+    box-sizing: border-box;
+    position: fixed;
+    height: 110px;
+    bottom: 0;
+    .header-inner-wrap {
+        max-width: 60vh;
+        width: 100%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+    }
+    a,
+    a:hover {
+        text-decoration: none;
+    }
+}
+
+.header-container {
+    height: 120px;
+}
+
+.icons-wrap {
+    text-align: center;
+    color: $gray-color;
+    p {
+        font-size: 1.8rem;
+        padding-top: 0.3rem;
+        font-weight: $bold;
+    }
+    .icons {
+        height: 50px;
+        width: 50px;
+    }
+    &:hover {
+        p {
+            color: $white-color;
+        }
+        svg g,
+        svg,
+        svg path {
+            fill: $white-color;
+        }
+    }
+}
+
+.icons-wrap-active {
+    svg g,
+    svg path {
+        fill: $white-color;
+    }
+    p {
+        color: $white-color;
+    }
+}

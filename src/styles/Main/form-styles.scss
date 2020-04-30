@@ -1,6 +1,8 @@
 .error {
     font-size: 1.5rem;
     color: $main-color;
+    margin: 0;
+    font-weight: $bold;
 }
 
 .form-elements-wrap {
@@ -21,21 +23,46 @@ label {
     width: 100%;
 }
 
+.rw-multiselect,
+.rw-dropdown-list {
+    width: 100%;
+}
+
+.rw-input,
+.rw-dropdown-list-autofill {
+    color: $dark-color;
+    font-size: 1.5rem;
+    padding: 0;
+    font-weight: $semibold;
+}
+
 input,
 .rw-multiselect>.rw-widget-picker,
+.rw-widget>.rw-widget-container,
 select,
 textarea {
+    font-size: 1.5rem;
     margin: 0.5rem 0;
+    width: 100%;
     border: solid 2px $gray-color;
     border-radius: 25px;
     height: 45px;
-    padding: 0.5rem;
+    padding: 1rem 1.4rem;
     box-sizing: border-box;
     background: #ffffff;
+    color: $dark-color;
+    font-weight: $semibold;
+}
+
+.rw-widget-input .rw-widget-picker .rw-widget-container {
+    color: $dark-color;
+    font-weight: $semibold;
+    font-size: 1.5rem;
 }
 
 textarea {
     height: 100%;
+    min-height: 100px;
 }
 
 .rw-multiselect-tag {
@@ -44,6 +71,16 @@ textarea {
     vertical-align: middle;
     padding: 0.8rem;
     border-radius: 25px;
+}
+
+.rw-multiselect-tag span,
+.rw-list-option li:hover,
+.rw-list-option li {
+    color: $white-color;
+}
+
+.rw-list-option:hover {
+    color: $white-color;
 }
 
 .rw-popup {
@@ -57,29 +94,38 @@ textarea {
 .rw-list-option:hover,
 .rw-list-option:hover.rw-state-focus {
     background: $main-color;
-    color: $white-color;
 }
 
 .rw-popup ul li {
     color: $light-gray;
 }
 
-.rw-list-option.rw-state-focus {
+.rw-list-option.rw-state-focus,
+.rw-list-option.rw-state-selected:hover {
     border-color: none;
     border: none;
-    color: $light-gray;
+    background: $light-gray;
+    color: $white-color;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .rw-state-focus>.rw-widget-container,
 .rw-state-focus>.rw-widget-container:hover {
-    border: solid 1px $light-gray;
+    border: solid 2px $dark-color;
     box-shadow: none;
 }
 
 input:active,
 input:focus,
+select:active,
+select:focus,
+textarea:focus,
+textarea:active,
 .fw-open:focus,
 .fw-open:active,
+.rw-dropdown-list .rw-widget:focus,
+.rw-dropdown-list .rw-widget:active,
 .rw-multiselect>.rw-widget-picker:focus,
 .rw-multiselect>.rw-widget-picker:active,
 .rw-popup-container:active,
