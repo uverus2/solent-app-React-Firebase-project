@@ -1,6 +1,6 @@
-import React, {useContext} from 'react';
+import React, {useContext,useEffect,useState} from 'react';
 import userContext from "../store/userStore";
-import {useHistory} from "react-router-dom";
+import {useHistory,useParams,Link} from "react-router-dom";
 
 //Components
 import Header from "../components/Header";
@@ -15,18 +15,98 @@ let schema = object().shape({
 });
 
 export default function Project(props) {
+    const {addComment, allComments,commentsAdded} = props;
+    let {id,userNumber} = useParams();
+    const user = useContext(userContext);
+
+    const [commentsInfo, setCommentsInfo] = useState([]);
 
     const history = useHistory();
+    
     const { register, handleSubmit, reset, errors } = useForm({validationSchema:schema});
 
     const goBack = ()=> {
         history.goBack();
     };
 
-    const onSubmit = data => {
-        console.log(data);
-        reset();
+    useEffect(() => {
+        (async()=> {
+            try{
+                let allUserComments = [];
+                const retrivedComments = await allComments(id);
+                retrivedComments.forEach(i => allUserComments.push({id:i.id,...i.data()}));
+                setCommentsInfo(allUserComments);
+            }catch(e){
+                console.log(e);
+            }
+        })();
+    }, []);
+
+
+useEffect(() => {
+        (async()=> {
+            try{
+                const consoleCB = (doc) => {
+                    let emptyArray = [];
+                    doc.forEach(i => emptyArray.push({...i.data()}));
+                    console.log(emptyArray)
+                    setCommentsInfo(emptyArray);
+                }
+                await commentsAdded(id,consoleCB);
+            }catch(e){
+                console.log(e);
+            }
+        })();
+    }, [commentsAdded]);
+
+    const onSubmit = async (data,e) => {
+        try{
+            e.preventDefault();
+            const comment = {
+                userID:user.id,
+                time: new Date(),
+                comment:data.message,
+                initials: user.name.charAt(0) + user.surname.charAt(0)
+            };
+            await addComment(id,comment);
+            reset();
+        }catch(e){
+            console.log(e)
+        }
     };
+
+    const chatRoom = commentsInfo.map(i => {
+        let counter = Math.random().toString(36).substring(7);
+        if(i.userID === user.id){
+            return(
+                <div key={counter} className="m-auto my-comment-wrap">
+                    <div  className=" my-comment comment-boxes">
+                        <p>{i.comment}</p>
+                    </div>
+                </div>
+            );
+        }else{
+            return(
+                <div key={counter} className="comment-wrap m-auto">
+                    <Link to={`/user-profile/${i.userID}`}>
+                        <div  className="comment-image">
+                            <p>{i.initials}</p> 
+                        </div>
+                    </Link>
+                    <div className="comment-box comment-boxes">
+                        <p>{i.comment}</p> 
+                    </div>
+                </div>
+            );
+        }
+    });
+
+    const onKeyPress = (event) => {
+        if (event.which === 13) {
+          event.preventDefault();
+        }
+    }
+
     return (
         <div className="h-100">
             <Hero/>
@@ -34,21 +114,13 @@ export default function Project(props) {
                 <h1 className="py-2">Project Name</h1>
                 <div className="pt-2 pb-1 comment-review">
                     <a onClick={goBack}>Go back</a>
-                    <p>5 User Number</p>
+                    <p>Users in chat: {userNumber}</p>
                 </div>
-                <div className="comment-wrap m-auto py-3">
-                    <div className="comment-image">
-                        <p>KR</p>
-                    </div>
-                    <div className="comment-box comment-boxes">
-                        <p>Hello guys</p>
-                    </div>
-                    <div className="my-comment comment-boxes">
-                        <p>My comment</p>
-                    </div>
+                <div className="py-3">
+                    {chatRoom}
                 </div>
             </div>
-            <form className="py-3" action="">
+            <form onKeyPress={onKeyPress} className="py-3">
                 {errors.message && (<p className="error text-center py-1"> {errors.message.message} </p>)}
                 <div className="leave-comment m-auto">
                     <input type="text" name="message" placeholder="Type Message" ref={register}/>

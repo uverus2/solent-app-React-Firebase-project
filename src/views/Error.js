@@ -1,5 +1,6 @@
 import React from 'react';
 import {useHistory} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 export default function Error() {
 
@@ -14,7 +15,7 @@ export default function Error() {
                 <img src="/images/logo.png" alt=""/>
             </div>
             <h1 className="py-2">Error: Page not found</h1>
-            <h2 className="py-2 ">Please <a className="go-back" onClick={goBack}> go back </a></h2>
+            <h2 className="py-2 ">Please <Link className="go-back" onClick={goBack}> go back </Link></h2>
         </div>
     )
 }

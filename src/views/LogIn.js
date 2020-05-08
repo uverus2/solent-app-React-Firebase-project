@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {Link} from "react-router-dom";
 
 //Components
 import Bottom from "../components/Deviders/BottomDevider";
@@ -19,12 +20,13 @@ export default function LogIn(props) {
 
     return (
         <div className="top-wrap"> 
-            <div className="content-wrap">
+            <div className="content-wrap text-center">
                 <div className="logo">
                     <img src="/images/logo.png" alt=""/>
                 </div>
                 {error !== "" && (<p className="error text-center">{error}</p>)}
                 <LogInForm onSubmit={logInSubmit}/>
+                <Link to="/register"> <button className="secondary"> Register </button> </Link>
             </div>
             <Bottom/>
         </div>

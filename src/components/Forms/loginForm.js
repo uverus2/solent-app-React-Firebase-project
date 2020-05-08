@@ -13,11 +13,10 @@ export default function LoginForm(props) {
 
     const {onSubmit} = props;
 
-    const { register, handleSubmit, reset, errors } = useForm({validationSchema:schema});
+    const { register, handleSubmit,errors } = useForm({validationSchema:schema});
 
     const handleInnerSubmit = data => {
         onSubmit(data);
-        reset();
     };
 
     return (

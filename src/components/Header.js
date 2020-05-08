@@ -1,7 +1,9 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
 
-export default function Header() {
+export default function Header(props) {
+    const {signOut} = props;
+
     return (
         <div className="header-container">
             <div className="header-wrap">
@@ -26,7 +28,7 @@ export default function Header() {
                             <p>Profile</p>
                         </div>
                     </NavLink>
-                    <div className="icons-wrap">
+                    <div onClick={signOut} className="icons-wrap">
                         <svg className="icons" viewBox="0 0 50 55" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M17.6827 0V4.00894H0V50.9322L17.6825 50.9426V55L49.9666 50.8207L50 4.20825L17.6827 0ZM23.0377 25.6588C24.122 25.6588 25.0011 26.4832 25.0011 27.4999C25.0011 28.5167 24.1222 29.3411 23.0377 29.3411C21.9533 29.3411 21.0743 28.517 21.0743 27.4999C21.0743 26.4829 21.9534 25.6588 23.0377 25.6588ZM5.25006 47.1517V7.79254H17.6825V47.1589L5.25006 47.1517Z" fill="#333"/>
                         </svg>

@@ -1,13 +1,13 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 
 // Form validation
 import { useForm } from 'react-hook-form';
-import { string, object, ref, array } from 'yup';
+import { string, object } from 'yup';
 import { Multiselect } from 'react-widgets';
-import { DropdownList } from 'react-widgets';
 
 let schema = object().shape({
     name:string().required("Field is required"),
+    topic:string().required("Field is required"),
     roles:string().required("Field is required"),
     skills:string().required("Field is required"),
     description: string().required("Field is required"),
@@ -56,6 +56,11 @@ export default function ProjectForm(props) {
                         <label htmlFor="Name">Project Name</label>
                         <input type="text" name="name" ref={register}/>
                         {errors.name && (<p className="error py-1"> {errors.name.message} </p>)}
+                    </div>
+                    <div className="flex-center flex-d-column py-1">
+                        <label htmlFor="Topic">Project Topic</label>
+                        <input type="text" name="topic" ref={register}/>
+                        {errors.topic && (<p className="error py-1"> {errors.topic.message} </p>)}
                     </div>
                     <div className="flex-center flex-d-column py-1">
                         <label htmlFor="skills">Skills List</label>

@@ -1,16 +1,19 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 
 // Form validation
 import { useForm } from 'react-hook-form';
-import { string, object, ref, array } from 'yup';
+import { string, object, ref} from 'yup';
 import { Multiselect } from 'react-widgets';
 import { DropdownList } from 'react-widgets';
+import {Link} from "react-router-dom";
 
 let schema = object().shape({
-    email: string().email("It must be a valid email").required("Field is required").max(20,"Only 6 characters"),
+    email: string().email("It must be a valid email").required("Field is required"),
     password: string().required("Field is required").matches(/^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/,"Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"),
     password2: string().oneOf([ref('password')], 'Passwords do not match'),
-    name:string().required("Field is required"),
+    name:string().required("Field is required").matches(/^\S*$/, "No Spaces Allowed"),
+    surname:string().required("Field is required").matches(/^\S*$/, "No Spaces Allowed"),
+    role:string().required("Field is required"),
     course:string().required("Field is required"),
     studyYear:string().required("Field is required"),
     skills:string().required("Field is required"),
@@ -43,11 +46,10 @@ export default function RegisterForm(props) {
         }
     };
 
-    const { register, handleSubmit, reset, errors } = useForm({validationSchema:schema});
+    const { register, handleSubmit, errors } = useForm({validationSchema:schema});
 
     const handleInnerSubmit = data => {
         onSubmit(data);
-        reset();
     };
 
 
@@ -77,6 +79,16 @@ export default function RegisterForm(props) {
                         {errors.name && (<p className="error py-1"> {errors.name.message} </p>)}
                     </div>
                     <div className="flex-center flex-d-column py-1">
+                        <label htmlFor="Surname">Surname</label>
+                        <input type="text" name="surname" ref={register}/>
+                        {errors.surname && (<p className="error py-1"> {errors.surname.message} </p>)}
+                    </div>
+                    <div className="flex-center flex-d-column py-1">
+                        <label htmlFor="Role">Role</label>
+                        <input type="text" name="role" ref={register}/>
+                        {errors.role && (<p className="error py-1"> {errors.role.message} </p>)}
+                    </div>
+                    <div className="flex-center flex-d-column py-1">
                         <label htmlFor="Course">Course</label>
                         <input type="text" name="course" ref={register}/>
                         {errors.course && (<p className="error py-1"> {errors.course.message} </p>)}
@@ -101,7 +113,7 @@ export default function RegisterForm(props) {
                     </div>
                         {registerValue && (
                         <div className="flex-center pt-1 flex-d-column py-1">
-                            <p>Already have an account. <a href="/login"> Log in here </a></p>
+                            <p>Already have an account. <Link to="/login"> Log in here </Link></p>
                         </div>
                         )}
                     <div className="flex-center pt-3 flex-d-column">

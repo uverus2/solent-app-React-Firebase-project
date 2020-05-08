@@ -1,8 +1,14 @@
-import React from 'react';
+import React, {useState,useContext} from 'react';
 import {useHistory} from "react-router-dom";
+import userContext from "../store/userStore";
+
 //Components
-import RegisterForm from "../components/Forms/RegisterForm";
-export default function LogIn() {
+import UpdateForm from "../components/Forms/UpdateForm";
+export default function UpdateProfile(props) {
+    const {updateProfile} = props;
+    const [serverError, setServerErrorMessage] = useState("");
+    const user = useContext(userContext);
+    console.log(user);
 
     const history = useHistory();
 
@@ -10,8 +16,24 @@ export default function LogIn() {
         history.goBack();
     };
 
-    const updateProfile = (data) => {
-        console.log(data);
+    const updateUserProfile = async(data) => {
+        try{
+            setServerErrorMessage("");
+            let userData = {
+                email:data.email,
+                name: data.name,
+                surname: data.surname,
+                role:data.role,
+                course: data.course,
+                studyYear: data.studyYear,
+                skills: data.skills.split(","),
+                description: data.description
+            };
+            updateProfile(`${user.id}`,userData);
+            window.location.replace("/profile");
+        }catch(e){
+            setServerErrorMessage(e.message);
+        }
     };
 
     return (
@@ -24,7 +46,8 @@ export default function LogIn() {
                     <img src="/images/logo.png" alt=""/>
                 </div>
                 <h1 className="text-center py-3">Edit Profile</h1>
-                <RegisterForm onSubmit={updateProfile} buttonText="Save Now"/>
+                {serverError !== "" && <p className="error"> {serverError} </p>}
+                <UpdateForm user={user} onSubmit={updateUserProfile} buttonText="Save Now"/>
             </div>
         </div>
     )
