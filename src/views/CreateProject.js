@@ -45,7 +45,7 @@ export default function CreateProject(props) {
                     <a onClick={goBack}>Go back</a>
                 </div>
                 <div className="logo">
-                    <img src="/images/logo.png" alt=""/>
+                    <img alt="logo" src="/images/logo.png" alt=""/>
                 </div>
                 <h1 className="text-center py-3">Create a Project</h1>
                 {serverError !== "" && <p className="text-center error"> {serverError} </p>}

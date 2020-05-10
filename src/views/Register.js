@@ -31,7 +31,7 @@ export default function LogIn(props) {
         <div className="top-wrap"> 
             <div className="content-wrap">
                 <div className="logo">
-                    <img src="/images/logo.png" alt=""/>
+                    <img alt="logo" src="/images/logo.png" alt=""/>
                 </div>
                 {serverError !== "" && <p className="text-center error"> {serverError} </p>}
                 <RegisterForm onSubmit={registerUser} registerValue={true} buttonText="Register Me"/>

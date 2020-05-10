@@ -22,7 +22,7 @@ export default function LogIn(props) {
         <div className="top-wrap"> 
             <div className="content-wrap text-center">
                 <div className="logo">
-                    <img src="/images/logo.png" alt=""/>
+                    <img alt="logo" src="/images/logo.png" alt=""/>
                 </div>
                 {error !== "" && (<p className="error text-center">{error}</p>)}
                 <LogInForm onSubmit={logInSubmit}/>

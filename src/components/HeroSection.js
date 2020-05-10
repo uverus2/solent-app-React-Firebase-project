@@ -7,7 +7,7 @@ export default function HeroSection() {
         <div>
             <div className="hero-styles flex-center py-2 main-hero">
                 <div className="logo ">
-                    <img src="/images/logo.png" alt=""/>
+                    <img alt="hero-image" src="/images/logo.png" alt=""/>
                 </div>
             </div>
             <TopDevider/>

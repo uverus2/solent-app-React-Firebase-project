@@ -44,7 +44,7 @@ export default function Card(props) {
                 <hr/>
             </div>
             <div className="card-image py-1">
-                <img src="/images/card-image.png" alt=""/>
+                <img alt="card-main" src="/images/card-image.png" alt=""/>
             </div>
             <div className="card-details py-1">
                 <p><span>Topic: </span>{project.topic}</p>

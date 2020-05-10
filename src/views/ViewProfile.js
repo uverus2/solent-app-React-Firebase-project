@@ -49,7 +49,7 @@ export default function ViewProfile(props) {
         <div className="h-100">
             <div className="hero-styles flex-center py-2 profile-hero">
                 <div className="logo">
-                    <img src="/images/logo.png" alt=""/>
+                    <img alt="logo" src="/images/logo.png" alt=""/>
                 </div>
             </div>
             <TopDevider/>
@@ -61,7 +61,7 @@ export default function ViewProfile(props) {
                 <div className="details-container py-2 py-mobile-0">
                     <div>
                         <div className="flex-end">
-                            <img src="/images/user-profile.png" alt=""/>
+                            <img alt="profile-image" src="/images/user-profile.png" alt=""/>
                         </div>
                     </div>
                     <div className="text-left px-3 px-mobile-0">

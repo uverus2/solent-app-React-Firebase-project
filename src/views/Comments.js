@@ -124,7 +124,7 @@ useEffect(() => {
                 {errors.message && (<p className="error text-center py-1"> {errors.message.message} </p>)}
                 <div className="leave-comment m-auto">
                     <input type="text" name="message" placeholder="Type Message" ref={register}/>
-                    <img src="/images/arrow-rigth.png" onClick={handleSubmit(onSubmit)} alt=""/>
+                    <img alt="submit" src="/images/arrow-rigth.png" onClick={handleSubmit(onSubmit)} alt=""/>
                 </div>
             </form>
             <Header/>
