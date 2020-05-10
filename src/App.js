@@ -29,9 +29,9 @@ import ViewProfile from "./views/ViewProfile";
 
 
 // Firebase setup 
-import firebase from "firebase/app";   // the firbase core lib
+import firebase from "firebase/app";   // the firebase core lib
 import 'firebase/auth'; // specific products
-import firebaseConfig from "./config/firebase";  // the firebase config we set up ealier
+import firebaseConfig from "./config/firebase";  // the firebase config we set up earlier
 import "firebase/firestore";
 
 // Custom hooks
